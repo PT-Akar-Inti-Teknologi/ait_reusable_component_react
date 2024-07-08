@@ -1,7 +1,7 @@
 
 export const Theme = {
   button: [
-    'relative overflow-hidden bg-inherit flex justify-center items-center rounded-md cursor-pointer transition-[background]',
+    'relative overflow-hidden bg-inherit flex justify-center items-center rounded-md cursor-pointer transition-[background] p-0',
     'focus:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50'
   ],
