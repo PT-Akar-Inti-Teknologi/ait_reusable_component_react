@@ -1,23 +1,32 @@
 {
-  "name": "ait_reusable_table_react",
-  "version": "0.0.30",
+  "name": "ait-reusable-component-react",
+  "description": "A fully-fledged Table module created for React apps. Provides table component, search field, paging mode and more!",
+  "author": "PT Akar Inti Teknologi",
+  "license": "ISC",
+  "version": "0.1.33",
   "type": "module",
-  "source": "src/lib/components/index.ts",
-  "main": "./dist/ait_reusable_table_react.cjs",
-  "module": "./dist/ait_reusable_table_react.module.js",
-  "unpkg": "./dist/ait_reusable_table_react.umd.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json"
+  ],
   "exports": {
-    "require": "./dist/ait_reusable_table_react.cjs",
-    "default": "./dist/ait_reusable_table_react.module.js",
-    "import": "./dist/ait_reusable_table_react.module.js"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "dev:module": "microbundle watch",
-    "build": "tsc && vite build",
-    "build:module": "microbundle --sourcemap false --jsx React.createElement --output dist --tsconfig ./tsconfig.json",
+    "build": "tsup",
+    "build:css": "tailwindcss -o dist/index.css --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
@@ -48,12 +57,16 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "microbundle": "^0.15.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
+    "tsup": "^8.1.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
     "vite-tsconfig-paths": "^4.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17 || ^18",
+    "react-dom": "^16.8 || ^17 || ^18"
   },
   "repository": {
     "type": "git",
