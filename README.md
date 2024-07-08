@@ -22,7 +22,7 @@ A fully-fledged Table module created for React apps. Provides table component, s
 
 # Introduction
 
-**AIT Reusable Table React** provide You to use components that adapted to AIT standards. Its fully customizeable, realabel, integrated with Tailwind CSS.
+**AIT Reusable Component React** provide You to use components that adapted to AIT standards. Its fully customizeable, realabel, integrated with Tailwind CSS.
 
 ### [Demo](https://ait-reusable-table-react.sandbait.work/)
 
@@ -33,13 +33,13 @@ A fully-fledged Table module created for React apps. Provides table component, s
 With NPM
 
 ```bash
-npm add ait_reusable_table_react
+npm install ait-reusable-component-react
 ```
 
 With Yarn
 
 ```bash
-yarn add ait_reusable_table_react
+yarn add ait-reusable-component-react
 ```
 
 ## Install Tailwind CSS
@@ -60,7 +60,7 @@ This project uses Tailwind CSS for UI Framework. [You can refer this link to ins
 ## Table
 
 ```tsx
-import { Table } from 'ait_reusable_table_react'
+import { Table } from 'ait-reusable-component-react'
 ```
 
 | Parameter | Type | Description | Default Value | Required |
@@ -95,7 +95,7 @@ import { Table } from 'ait_reusable_table_react'
 ## TableRow
 
 ```tsx
-import { TableRow } from 'ait_reusable_table_react'
+import { TableRow } from 'ait-reusable-component-react'
 ```
 
 *All common `tr` props can be apply to this component*
@@ -105,7 +105,7 @@ import { TableRow } from 'ait_reusable_table_react'
 ## TableHead
 
 ```tsx
-import { TableHead } from 'ait_reusable_table_react'
+import { TableHead } from 'ait-reusable-component-react'
 ```
 
 *All common `thead` props can be apply to this component*
@@ -115,7 +115,7 @@ import { TableHead } from 'ait_reusable_table_react'
 ## TableBody
 
 ```tsx
-import { TableBody } from 'ait_reusable_table_react'
+import { TableBody } from 'ait-reusable-component-react'
 ```
 
 *All common `tbody` props can be apply to this component*
@@ -171,7 +171,7 @@ import { TableBody } from 'ait_reusable_table_react'
 ## ActionButton
 
 ```tsx
-import { ActionButton } from 'ait_reusable_table_react'
+import { ActionButton } from 'ait-reusable-component-react'
 ```
 
 Used for `TableCell` action
@@ -189,7 +189,7 @@ Used for `TableCell` action
 ## Typography
 
 ```tsx
-import { Typography } from 'ait_reusable_table_react'
+import { Typography } from 'ait-reusable-component-react'
 ```
 
 | Parameter | Type | Description | Default Value | Required |
@@ -205,7 +205,7 @@ import { Typography } from 'ait_reusable_table_react'
 ## TextField
 
 ```tsx
-import { TextField } from 'ait_reusable_table_react'
+import { TextField } from 'ait-reusable-component-react'
 ```
 
 | Parameter | Type | Description | Default Value | Required |
@@ -246,7 +246,7 @@ import { TextField } from 'ait_reusable_table_react'
 ## Paging
 
 ```tsx
-import { Paging } from 'ait_reusable_table_react'
+import { Paging } from 'ait-reusable-component-react'
 ```
 
 | Parameter | Type | Description | Default Value | Required |
@@ -274,7 +274,7 @@ import { Paging } from 'ait_reusable_table_react'
 ## Search
 
 ```tsx
-import { InputSearch } from 'ait_reusable_table_react'
+import { InputSearch } from 'ait-reusable-component-react'
 ```
 
 | Parameter | Type | Description | Default Value | Required |
@@ -310,7 +310,7 @@ import {
   TableHead,
   TableRow,
   ToggleDarkMode
-} from "ait_reusable_table_react";
+} from "ait-reusable-component-react";
 import {
   Wrapper
 } from "../../components";
@@ -384,7 +384,7 @@ export function ExamplePage() {
 
 #### [Demo](https://ait-reusable-table-react.sandbait.work/example-with-query-params)
 
-See [src/examples/modules/ExampleWithQueryParams](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react/blob/main/src/examples/modules/ExampleWithQueryParams)
+See [src/examples/modules/ExampleWithQueryParams](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_component_react/blob/main/src/examples/modules/ExampleWithQueryParams)
 
 ### Integrating with Query Params and React Query
 
@@ -392,7 +392,7 @@ See [src/examples/modules/ExampleWithQueryParams](https://github.com/PT-Akar-Int
 
 #### [Demo](https://ait-reusable-table-react.sandbait.work/)
 
-See [src/examples/modules/ExampleWithReactQuery](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react/tree/main/src/examples/modules/ExampleWithReactQuery)
+See [src/examples/modules/ExampleWithReactQuery](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_component_react/tree/main/src/examples/modules/ExampleWithReactQuery)
 
 # Developers
 
