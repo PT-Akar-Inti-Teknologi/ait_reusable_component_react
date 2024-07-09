@@ -73,7 +73,7 @@ export default {
 }
 ```
 
-Add extends color to **tailwind.config.js**
+Add extends color `primary`, `secondary`, `tertiary`, `danger`, `success`, `warning`, `info`  to **tailwind.config.js**
 
 <details>
 <summary>Expand Example</summary>
