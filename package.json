@@ -3,7 +3,7 @@
   "description": "A fully-fledged Table module created for React apps. Provides table component, search field, paging mode and more!",
   "author": "PT Akar Inti Teknologi",
   "license": "ISC",
-  "version": "0.1.35",
+  "version": "0.1.37",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.cjs",
@@ -14,9 +14,14 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/components/index.js",
+      "import": "./dist/components/index.cjs",
+      "types": "./dist/components/index.d.ts"
+    },
+    "./utils": {
+      "require": "./dist/utils/index.js",
+      "import": "./dist/utils/index.cjs",
+      "types": "./dist/utils/index.d.ts"
     }
   },
   "scripts": {
