@@ -1,10 +1,20 @@
 import {
-  useFormContext
-} from "react-hook-form";
-import {
   ChangeEvent
 } from "react";
+import {
+  useFormContext
+} from "react-hook-form";
 
+import {
+  TextField
+} from "~/components/TextField";
+import {
+  cleanNumber,
+  formatCurrency
+} from "~/utils/number.utils";
+import {
+  useDisabledField,
+} from "../HookForm/HookForm.context";
 import {
   InputTextFieldProps
 } from "./InputTextField.types";
@@ -13,16 +23,6 @@ import {
   getInputType,
   validateForm
 } from "./InputTextField.utils";
-import {
-  useDisabledField,
-} from "../HookForm/HookForm.context";
-import {
-  TextField
-} from "~/components/TextField";
-import {
-  cleanNumber,
-  formatCurrency
-} from "~/utils/input.utils";
 
 export function InputTextField({
   disabled,
