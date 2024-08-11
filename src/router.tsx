@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 
 import {
+  ExampleFormPage,
   ExamplePage,
   ExampleWithQueryParamsPage,
   ExampleWithReactQueryPage
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     element: <ExamplePage />,
     path: '/common-usage'
+  },
+  {
+    element: <ExampleFormPage />,
+    path: '/common-usage-form'
   },
   {
     element: <ExampleWithQueryParamsPage />,
