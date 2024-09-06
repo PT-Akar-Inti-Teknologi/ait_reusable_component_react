@@ -34,7 +34,7 @@ export interface RequirementErrorMessage {
 
 export interface ImageUploadProps extends Omit<DropzoneOptions, 'multiple' | 'onDrop' | 'maxFiles' | 'accept'> {
   requirementErrorMessage?: RequirementErrorMessage
-  onChangeImage?: (file?: string) => void
+  onChangeImage?: (file: File) => void
   requirements?: (data: RequirementParam) => ReactNode[]
   placeholder?: string
   buttonText?: string
@@ -45,7 +45,7 @@ export interface ImageUploadProps extends Omit<DropzoneOptions, 'multiple' | 'on
   ratio?: ImageRatioType;
   error?: boolean
   label?: string
-  value?: string
+  value?: string | File
   name?: string
   inputRef?: any
 }
