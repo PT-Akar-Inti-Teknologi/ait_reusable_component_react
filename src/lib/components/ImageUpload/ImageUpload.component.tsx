@@ -3,7 +3,7 @@ import {
   Ref,
   forwardRef,
   useCallback,
-  useEffect,
+  useLayoutEffect,
   useState
 } from "react";
 import {
@@ -13,6 +13,7 @@ import {
   twMerge
 } from "tailwind-merge";
 import {
+  getFileDataUrl,
   hasArray,
   humanFileSize,
   safeArray
@@ -74,41 +75,42 @@ function _ImageUpload(
 ) {
 
   const [rejectReasons, setRejectReasons] = useState<string[]>([]);
-  const [fileUrl, setFileUrl] = useState<string | undefined>(value);
+  const [fileUrl, setFileUrl] = useState<string | undefined>('');
 
   const isError = rejectReasons.length > 0 || error;
   const hasFile = !!fileUrl;
 
-  useEffect(() => {
-    if (value !== undefined) {
-      setFileUrl(value);
-    }
-  }, [value]);
+  useLayoutEffect(
+    () => {
+      if (typeof value === 'object') {
+        getFileDataUrl(value).then(setFileUrl).catch(() => { });
+      } else {
+        setFileUrl(value);
+      }
+      return () => {
+        if (fileUrl) {
+          URL.revokeObjectURL(fileUrl);
+        }
+      }
+    },
+    [value?.toString()]
+  );
 
   const handleAcceptedImage = useCallback(
-    (file: File) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        const _fileUrl = reader.result?.toString();
+    async (file: File) => {
 
-        const img = new Image;
-        img.src = _fileUrl!;
-        img.onload = (() => {
+      const _fileUrl = await getFileDataUrl(file);
+      if (!await validateImageRatio(_fileUrl, ratio)) {
+        const message = typeof requirementErrorMessage?.invalidRatio === 'function'
+          ? requirementErrorMessage?.invalidRatio(ratio)
+          : `Image ratio should be ${ratio}`;
+        setRejectReasons([message]);
+        return;
+      }
 
-          if (!validateImageRatio(img.width, img.height, ratio)) {
-            const message = typeof requirementErrorMessage?.invalidRatio === 'function'
-              ? requirementErrorMessage?.invalidRatio(ratio)
-              : `Image ratio should be ${ratio}`;
-            setRejectReasons([message]);
-            return;
-          }
-
-          setRejectReasons([]);
-          onChangeImage?.(_fileUrl);
-          setFileUrl(_fileUrl);
-        });
-      };
+      setRejectReasons([]);
+      onChangeImage?.(file);
+      setFileUrl(_fileUrl);
     },
     []
   );

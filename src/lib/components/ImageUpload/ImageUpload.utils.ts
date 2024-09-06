@@ -16,18 +16,29 @@ export function imageAcceptLabel(accept?: ImageAcceptType[]) {
   return safeArray(accept).map((_) => `.${_}`).join(' / ');
 }
 
-export function validateImageRatio(
-  width: number,
-  height: number,
-  expected?: ImageRatioType
-) {
-  if (!expected) {
+export function getImageProperty(imageUrl: string): Promise<HTMLImageElement | undefined> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(undefined);
+  });
+}
+
+export async function validateImageRatio(imageUrl?: string, expected?: ImageRatioType) {
+
+  if (!imageUrl || !expected) {
     return true;
+  }
+
+  const imageObj = await getImageProperty(imageUrl);
+  if (!imageObj) {
+    return false;
   }
 
   const [expectedWidth = 1, expectedHeight = 1] = expected.split(':').map((_) => parseInt(_));
   const expectedRatio = (expectedWidth / expectedHeight).toFixed(1);
-  const imageRatio = (width / height).toFixed(1);
+  const imageRatio = (imageObj.width / imageObj.height).toFixed(1);
   return expectedRatio === imageRatio;
 }
 
