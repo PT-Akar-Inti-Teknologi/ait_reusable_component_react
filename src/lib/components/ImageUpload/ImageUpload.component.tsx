@@ -60,11 +60,12 @@ function _ImageUpload(
     accept = ['jpeg', 'png'],
     ratio = '16:9',
     requirementErrorMessage,
-    onChangeImage,
+    onChangeValue,
     requirements,
     placeholder,
     helperText,
     className,
+    inputRef,
     required,
     value,
     error,
@@ -109,11 +110,16 @@ function _ImageUpload(
       }
 
       setRejectReasons([]);
-      onChangeImage?.(file);
+      onChangeValue?.(file);
       setFileUrl(_fileUrl);
     },
     []
   );
+
+  const handleRemoveImage = () => {
+    onChangeValue?.(undefined);
+    setFileUrl(undefined);
+  }
 
   const hasMaxSize = typeof maxSize === 'number';
   const maxImageSize = hasMaxSize ? Math.pow(1024, 2) * maxSize : undefined;
@@ -196,7 +202,7 @@ function _ImageUpload(
           >
             {buttonText}
           </Button>
-          <input {...dropzone.getInputProps()} />
+          <input ref={inputRef} {...dropzone.getInputProps()} />
         </div>
         <div className={twMerge("relative", !hasFile && "hidden")}>
           <Thumbnail
@@ -213,7 +219,7 @@ function _ImageUpload(
               />
               <ActionButton
                 className="shadow-lg"
-                onClick={() => setFileUrl(undefined)}
+                onClick={() => handleRemoveImage()}
                 variant="delete"
               />
             </div>

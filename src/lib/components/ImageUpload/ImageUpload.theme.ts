@@ -6,5 +6,8 @@ export const Theme = {
     'dark:bg-gray-700 dark:border-gray-600',
     'dark:hover:bg-gray-600'
   ],
-  placeholerError: 'border-danger'
+  placeholerError: [
+    'border-danger',
+    'dark:border-danger'
+  ]
 }
