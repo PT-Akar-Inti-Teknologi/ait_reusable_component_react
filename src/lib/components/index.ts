@@ -16,3 +16,4 @@ export * from './Radio';
 export * from './LabelItem';
 export * from './Button';
 export * from './InputGroup';
+export * from './ImageCropper';
