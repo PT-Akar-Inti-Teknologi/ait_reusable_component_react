@@ -56,9 +56,9 @@ export function DialogContentCropImage({
         </div>
       </DialogContent>
       <div className={twMerge(Theme.actions)}>
-        <Button>
+        {/* <Button>
           Aspect Ratio {ratio}
-        </Button>
+        </Button> */}
         <div className={Theme.innerActions}>
           <Button variant="outlined" onClick={() => dialogContext.hide()}>
             Cancel
