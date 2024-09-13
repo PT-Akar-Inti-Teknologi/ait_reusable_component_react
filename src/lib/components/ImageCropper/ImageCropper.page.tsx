@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import ReactCrop, { Crop, PixelCrop, centerCrop, makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-import {canvasPreview} from "~/utils/canvasPreview.ts";
-import { useDebounceEffect } from "~/utils/useDebounceEffect.ts";
-import {ImageCropperProps} from "~/components/ImageCropper/ImageCropper.types.ts";
+import { ImageCropperProps } from "~/components/ImageCropper/ImageCropper.types.ts";
+import { useDebounceEffect } from "~/hooks";
+import { canvasPreview } from "~/utils";
 
 
 export function ImageCropper({ aspect, onCropped }: ImageCropperProps) {
