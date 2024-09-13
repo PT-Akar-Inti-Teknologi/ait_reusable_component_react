@@ -58,7 +58,6 @@ function _ImageUpload(
     buttonText = 'Select Photo',
     maxSize = 1,
     accept = ['jpeg', 'png'],
-    ratio = '16:9',
     requirementErrorMessage,
     onChangeValue,
     requirements,
@@ -67,6 +66,7 @@ function _ImageUpload(
     className,
     inputRef,
     required,
+    ratio,
     value,
     error,
     label,
@@ -94,7 +94,7 @@ function _ImageUpload(
         }
       }
     },
-    [value?.toString()]
+    [value]
   );
 
   const handleAcceptedImage = useCallback(
@@ -110,14 +110,14 @@ function _ImageUpload(
       }
 
       setRejectReasons([]);
-      onChangeValue?.(file);
+      onChangeValue?.(file, _fileUrl);
       setFileUrl(_fileUrl);
     },
     []
   );
 
   const handleRemoveImage = () => {
-    onChangeValue?.(undefined);
+    onChangeValue?.(undefined, undefined);
     setFileUrl(undefined);
   }
 
