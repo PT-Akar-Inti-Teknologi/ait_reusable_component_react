@@ -3,9 +3,11 @@ export * from './Button';
 export * from './Checkbox';
 export * from './Content';
 export * from './ControlLabel';
+export * from './Dialog';
 export * from './Divider';
 export * from './HelperText';
 export * from './ImageCropper';
+export * from './ImageCropUpload';
 export * from './ImageUpload';
 export * from './InputGroup';
 export * from './InputSearch';
@@ -19,3 +21,4 @@ export * from './TextField';
 export * from './Thumbnail';
 export * from './ToggleDarkMode';
 export * from './Typography';
+
