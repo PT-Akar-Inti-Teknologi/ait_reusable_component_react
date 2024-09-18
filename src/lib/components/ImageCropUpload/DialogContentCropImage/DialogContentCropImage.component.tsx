@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactCrop from "react-image-crop";
+import { Component } from "react-image-crop";
 import 'react-image-crop/dist/ReactCrop.css';
 import { twMerge } from "tailwind-merge";
 import { Button } from "~/components/Button";
@@ -36,7 +36,7 @@ export function DialogContentCropImage({
             className={twMerge(Theme.canvasPreview, !isPreviewCrop && "hidden")}
             ref={refs.previewCanvasRef}
           />
-          <ReactCrop
+          <Component
             onComplete={action.handleCompletedCrop}
             className={twMerge("m-0", isPreviewCrop && "invisible")}
             onChange={action.handleUpdateCrop}
@@ -47,22 +47,19 @@ export function DialogContentCropImage({
             <img
               className="max-w-full"
               onLoad={action.handleImageLoad}
-              style={{ transform: `scale(1) rotate(0deg)` }}
               ref={refs.imageRef}
-              src={dialogContext.data.fileUrl}
+              src={dialogContext.data?.fileUrl}
               alt=""
             />
-          </ReactCrop>
+          </Component>
         </div>
       </DialogContent>
       <div className={twMerge(Theme.actions)}>
-        {/* <Button>
-          Aspect Ratio {ratio}
-        </Button> */}
         <div className={Theme.innerActions}>
           <Button variant="outlined" onClick={() => dialogContext.hide()}>
             Cancel
           </Button>
+          <div className="flex-1" />
           <Button onClick={() => setIsPreviewCrop((_) => !_)}>
             {isPreviewCrop ? "Crop Image" : "Preview"}
           </Button>

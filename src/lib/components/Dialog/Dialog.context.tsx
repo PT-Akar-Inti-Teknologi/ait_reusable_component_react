@@ -1,4 +1,3 @@
-// context.js
 import {
   createContext,
   createElement,

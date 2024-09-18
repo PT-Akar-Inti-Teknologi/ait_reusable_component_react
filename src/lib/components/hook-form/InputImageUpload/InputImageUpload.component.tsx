@@ -31,10 +31,10 @@ export function InputImageUpload({
             inputRef={field.ref}
             error={isError}
             value={field.value}
-            onChangeValue={(_) => {
+            onChangeValue={(_, __) => {
               field.onChange(_);
               field.onBlur();
-              onChangeValue?.(_);
+              onChangeValue?.(_, __);
             }}
           />
         );
