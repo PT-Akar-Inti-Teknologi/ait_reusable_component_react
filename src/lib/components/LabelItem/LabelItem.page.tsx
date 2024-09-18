@@ -1,26 +1,26 @@
 import {
-  ClassNameValue,
-  twMerge
-} from "tailwind-merge";
-import {
   ReactNode,
   createElement,
   isValidElement
 } from "react";
-
 import {
-  Typography
-} from "../Typography";
+  ClassNameValue,
+  twMerge
+} from "tailwind-merge";
+
 import {
   DisplayLabelOptions,
   displayValue
 } from "../Table";
 import {
-  LabelItemProps
-} from "./LabelItem.types";
+  Typography
+} from "../Typography";
 import {
   Theme
 } from "./LabelItem.theme";
+import {
+  LabelItemProps
+} from "./LabelItem.types";
 
 interface RenderChildrenProps {
   className?: ClassNameValue;
@@ -29,16 +29,9 @@ interface RenderChildrenProps {
 }
 
 function renderChildren(props: RenderChildrenProps, labelOptions?: DisplayLabelOptions<any>) {
-  if (!props.children) {
+  if (['string', 'number', 'boolean'].includes(typeof props.children)) {
     return (
-      <Typography className={twMerge("col-span-2", props.className)}>
-        {displayValue(props.value, labelOptions)}
-      </Typography>
-    );
-  }
-  if (typeof props.children === "string") {
-    return (
-      <Typography className={twMerge("col-span-2", props.className)}>
+      <Typography className={twMerge('col-span-2', props.className)}>
         {props.children}
       </Typography>
     );
@@ -46,8 +39,15 @@ function renderChildren(props: RenderChildrenProps, labelOptions?: DisplayLabelO
   if (isValidElement(props.children)) {
     return createElement(props.children.type, {
       ...props.children.props,
-      className: twMerge(props.children.props?.className, "col-span-2", props.className)
+      className: twMerge(props.children.props?.className, 'col-span-2', props.className)
     });
+  }
+  if (!props.children) {
+    return (
+      <Typography className={twMerge('col-span-2', props.className)}>
+        {displayValue(props.value, labelOptions)}
+      </Typography>
+    );
   }
   return props.children;
 }
