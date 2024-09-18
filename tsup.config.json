@@ -13,6 +13,7 @@
     "src/lib/components/index.ts",
     "src/lib/components/hook-form/index.ts",
     "src/lib/hooks/index.ts",
+    "src/lib/models/index.ts",
     "src/lib/utils/index.ts"
   ]
 }
