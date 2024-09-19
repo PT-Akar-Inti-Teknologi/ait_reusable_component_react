@@ -11,7 +11,6 @@ export function ImageCropUpload({
   ...props
 }: Readonly<ImageCropUploadProps>) {
 
-
   const dialogRef = useRef<DialogRef>(null);
 
   const handleAcceptValue = (file?: File, fileUrl?: string) => {

@@ -3,12 +3,12 @@ import {
 } from "react";
 
 import {
+  useUrlSearchParams
+} from "../../../hooks";
+import {
   InputSearch,
   InputSearchProps
 } from "../../InputSearch";
-import {
-  useUrlSearchParams
-} from "../../../hooks";
 
 export function InputSearchParams({
   className,
@@ -16,7 +16,7 @@ export function InputSearchParams({
 }: Readonly<InputSearchProps>) {
 
   const [searchParams, setSearchParams] = useUrlSearchParams<'search' | 'page'>();
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<number>();
 
   const handleSearch = (value: string) => {
     clearTimeout(timeoutRef.current);

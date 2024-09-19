@@ -12,7 +12,11 @@
   "entry": [
     "src/lib/components/index.ts",
     "src/lib/components/hook-form/index.ts",
+    "src/lib/components/query-params/index.ts",
+    "src/lib/components/react-query/index.ts",
     "src/lib/hooks/index.ts",
+    "src/lib/models/index.ts",
+    "src/lib/types/index.ts",
     "src/lib/utils/index.ts"
   ]
 }

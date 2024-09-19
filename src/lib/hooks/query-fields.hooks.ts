@@ -1,28 +1,17 @@
 import {
-  UseMutationResult,
-  UseQueryResult
-} from "@tanstack/react-query";
+  useEffect
+} from "react";
 import {
   UseFormReturn
 } from "react-hook-form";
 import {
-  AxiosError,
-  AxiosResponse
-} from "axios";
-import {
-  useEffect
-} from "react";
-
-import {
-  BaseResponse,
-  Response,
-  ResponseFieldError
-} from "~/models";
-
+  MutationType,
+  QueryType
+} from "~/types";
 
 export interface UseQueryFieldsParams<T> {
-  mutation?: UseMutationResult<AxiosResponse<BaseResponse<Response<T>>>, AxiosError<BaseResponse<ResponseFieldError>>, any>,
-  query?: UseQueryResult<T | undefined, AxiosError<BaseResponse<Response<any>>>>,
+  mutation?: MutationType,
+  query?: QueryType<T>,
   form: UseFormReturn<any, any, undefined>
 }
 
