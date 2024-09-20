@@ -55,7 +55,9 @@ import {
 
 function _ImageUpload(
   {
+    validateRatio = true,
     buttonText = 'Select Photo',
+    draftValue = true,
     maxSize = 1,
     accept = ['jpeg', 'png'],
     requirementErrorMessage,
@@ -101,7 +103,7 @@ function _ImageUpload(
     async (file: File) => {
 
       const _fileUrl = await getFileDataUrl(file);
-      if (!await validateImageRatio(_fileUrl, ratio)) {
+      if (validateRatio && !await validateImageRatio(_fileUrl, ratio)) {
         const message = typeof requirementErrorMessage?.invalidRatio === 'function'
           ? requirementErrorMessage?.invalidRatio(ratio)
           : `Image ratio should be ${ratio}`;
@@ -111,7 +113,7 @@ function _ImageUpload(
 
       setRejectReasons([]);
       onChangeValue?.(file, _fileUrl);
-      setFileUrl(_fileUrl);
+      setFileUrl(draftValue ? _fileUrl : undefined);
     },
     []
   );
@@ -206,8 +208,7 @@ function _ImageUpload(
         </div>
         <div className={twMerge("relative", !hasFile && "hidden")}>
           <Thumbnail
-            className={"min-h-[64px]"}
-            style={!ratio ? {} : { aspectRatio: ImageRatio[ratio] }}
+            className={"min-h-[64px] aspect-auto"}
             src={fileUrl}
           />
           {(!props.disabled) && (

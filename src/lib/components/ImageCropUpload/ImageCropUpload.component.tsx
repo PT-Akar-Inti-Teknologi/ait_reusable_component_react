@@ -14,7 +14,6 @@ export function ImageCropUpload({
   const dialogRef = useRef<DialogRef>(null);
 
   const handleAcceptValue = (file?: File, fileUrl?: string) => {
-    onChangeValue?.(file, fileUrl);
     if (file) {
       dialogRef.current?.show({ file, fileUrl });
     }
@@ -25,6 +24,8 @@ export function ImageCropUpload({
       <ImageUpload
         {...props}
         onChangeValue={handleAcceptValue}
+        validateRatio={false}
+        draftValue={false}
       />
       <Dialog
         closeOnBackdropClicked={false}

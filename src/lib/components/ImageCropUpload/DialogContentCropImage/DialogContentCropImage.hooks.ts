@@ -20,6 +20,7 @@ export function useDialogContentCropImageHook({
   const previewCanvasRef = useRef<HTMLCanvasElement>(null);
   const dialogContext = useDialogContext<{ value: File, fileUrl?: string }>();
   const imageRef = useRef<HTMLImageElement>(null);
+  const aspectRatio = getAspect(ratio);
 
   useDebounceEffect(
     async () => {
@@ -44,11 +45,8 @@ export function useDialogContentCropImageHook({
   );
 
   const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    if (ratio) {
-      const { width, height } = event.currentTarget;
-      const aspect = getAspect(ratio)!;
-      setCrop(centerAspectCrop(width, height, aspect));
-    }
+    const { width, height } = event.currentTarget;
+    setCrop(centerAspectCrop(width, height, aspectRatio ?? 16 / 9));
   };
 
   const handleUpdateCrop = (crop: PixelCrop, percentageCrop: PercentCrop) => {
@@ -80,6 +78,7 @@ export function useDialogContentCropImageHook({
       handleImageLoad
     },
     state: {
+      aspectRatio,
       crop
     },
     refs: {
