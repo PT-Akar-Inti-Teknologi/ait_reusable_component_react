@@ -7,7 +7,6 @@ import { DialogContent } from "~/components/Dialog/DialogContent.page";
 import { useDialogContentCropImageHook } from "./DialogContentCropImage.hooks";
 import { Theme } from "./DialogContentCropImage.theme";
 import { DialogContentCropImageProps } from "./DialogContentCropImage.types";
-import { getAspect } from "./DialogContentCropImage.utils";
 
 export function DialogContentCropImage({
   freeCrop,
@@ -40,7 +39,7 @@ export function DialogContentCropImage({
             onComplete={action.handleCompletedCrop}
             className={twMerge("m-0", isPreviewCrop && "invisible")}
             onChange={action.handleUpdateCrop}
-            aspect={getAspect(ratio)}
+            aspect={state.aspectRatio}
             crop={state.crop}
             {...props}
           >
