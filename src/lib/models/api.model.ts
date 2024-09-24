@@ -15,7 +15,7 @@ export type PaginateModel = {
   page?: number
   total?: number
   size?: number
-  rows_per_page?: number
+  total_pages?: number
   checked?: number
 }
 

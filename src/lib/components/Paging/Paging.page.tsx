@@ -19,7 +19,7 @@ function Paging({
   const total = Math.max(+totalProp || 0, 1);
   const size = Math.max(+sizeProp || 10, 1);
 
-  const totalPage = Math.ceil(total / +size);
+  const totalPage = total;
   const isStartPage = page < 5;
   const isLessPage = totalPage <= 7;
   const isEndPage = !isLessPage && (page > (totalPage - 4));
