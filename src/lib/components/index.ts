@@ -21,5 +21,4 @@ export * from './TextField';
 export * from './Thumbnail';
 export * from './ToggleDarkMode';
 export * from './Typography';
-export * from './Modal';
 
