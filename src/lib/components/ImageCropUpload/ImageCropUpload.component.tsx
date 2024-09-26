@@ -16,6 +16,8 @@ export function ImageCropUpload({
   const handleAcceptValue = (file?: File, fileUrl?: string) => {
     if (file) {
       dialogRef.current?.show({ file, fileUrl });
+    } else {
+      onChangeValue?.(file, fileUrl)
     }
   };
 

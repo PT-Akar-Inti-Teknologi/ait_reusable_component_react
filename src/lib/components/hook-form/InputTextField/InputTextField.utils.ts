@@ -38,6 +38,9 @@ export function validateForm(type?: string, required?: any) {
     if (!required && !value) {
       return (undefined);
     }
+    if (typeof value === 'string' && required && !value?.trim()) {
+      return "Field cannot be empty";
+    }
     if (type === 'email') {
       const isValid = emailRegExp.test(value);
       return isValid || 'The email format you’re using is incorrect.';
